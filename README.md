@@ -1,7 +1,7 @@
 # Groupe : 
-           - GIBAULT Alexandre
-           - SAADAOUI Fayrouz 
-           - TOMEZAK Melvin 
+            GIBAULT Alexandre
+            SAADAOUI Fayrouz 
+            TOMEZAK Melvin 
 
 # Répartition des tâches :
 

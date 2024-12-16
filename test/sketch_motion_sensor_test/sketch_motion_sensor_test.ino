@@ -1,7 +1,7 @@
 #define pyroelectric 14
 
 void setup() {
-Serial.begin(9900);
+Serial.begin(9600);
 pinMode(pyroelectric, INPUT);
 }
 

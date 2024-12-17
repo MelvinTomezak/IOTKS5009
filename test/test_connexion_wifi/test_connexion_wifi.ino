@@ -1,8 +1,8 @@
-//Test connexion wifi sur un partage de connexion
+//Test connexion wifi au microcontrolleur
 #include <WiFi.h>
 
-const char* ssid     = "iPhone de JogaBonito";
-const char* password = "melvinledz";
+const char* ssid     = "MicrocontrolleurFAM";
+const char* password = "oooooooooooo";
 
 void setup()
 {

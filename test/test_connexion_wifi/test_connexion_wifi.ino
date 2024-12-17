@@ -1,4 +1,5 @@
 //Test connexion wifi au microcontrolleur
+//Après vérification nous avons fait du microcontrolleur un point d'accès wifi
 #include <WiFi.h>
 
 const char* ssid     = "MicrocontrolleurFAM";

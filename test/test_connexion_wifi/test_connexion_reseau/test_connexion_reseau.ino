@@ -6,7 +6,7 @@ const char *ssid = "Xperia_5_2665";
 const char *password = "00000000"; 
   
 // MQTT Broker
-//C'est les parametres avec lequelles ça marchait 
+//C'est les parametres avec lequelles ça marche  
 const char *mqtt_broker = "192.168.147.67"; 
 const char *topic = "Test"; 
 const char *mqtt_username = ""; 

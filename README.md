@@ -23,3 +23,15 @@ Alexandre : Câblage, Code et test des différentes pièces
 Fayrouz : Câblage, Code et test des différentes pièces
 
 Melvin : Câblage, Code et test des différentes pièces
+
+## Etape 3 : Code et test installation MQTT Microcontroleur 
+
+Le microcontrolleur est désormais capable de se connnecter à un réseau et d'envoyer un message.
+
+Alexandre : Code et Test de la solution
+
+Fayrouz : Code et Test de la solution
+
+Melvin : Code et Test de la solution
+
+(Pour cette étape, merci au professeur de nous avoir aider à résoudre les problèmes réseaux).

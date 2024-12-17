@@ -33,7 +33,9 @@ Une fois l'installation terminer, modifier le fichier mosquitto.conf (trouvable 
 et ajouter c'est trois lignes :
 
 listener 1883 0.0.0.0
+
 allow_anonymous true
+
 log_timestamp_format %Y-%m-%d T %H:%M:%S
 
 Enregistrer et lancer un terminal en tant qu'administrateur afin de démarrer mosquitto a l'aide de la commande suivante : "net start mosquitto".

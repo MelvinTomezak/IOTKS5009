@@ -1,43 +1,58 @@
-//Test de connexion à un réseau
-#include <WiFi.h>
-#include <LiquidCrystal_I2C.h>
+#include "WiFi.h"
+#include "PubSubClient.h"
+#include  "Wire.h"
 
-const char* ssid = "Fayrouz";
-const char* password = "123sf3_8";
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+const char *ssid = "Xperia_5_2665";   
+const char *password = "00000000"; 
+  
+// MQTT Broker
+//C'est les parametres avec lequelles ça marchait 
+const char *mqtt_broker = "192.168.147.67"; 
+const char *topic = "Test"; 
+const char *mqtt_username = ""; 
+const char *mqtt_password = ""; 
+const int mqtt_port = 1883; 
+WiFiClient espClient; 
+PubSubClient client(espClient); 
 
-void setup(){
-    lcd.begin();
-    lcd.backlight();
-    Serial.begin(115200);
-    delay(1000);
+void setup() { 
+ Serial.begin(115200); 
+ Serial.println("Start"); 
+ WiFi.begin(ssid, password); 
+ while (WiFi.status() != WL_CONNECTED) { 
+ delay(500); 
+ Serial.println("Connecting to WiFi.."); 
+  } Serial.println("Connected to the Wi-Fi network");   
+ client.setServer(mqtt_broker, mqtt_port); 
+ client.setCallback(callback); 
+ while (!client.connected()) { 
+ String client_id = "esp32-client-"; 
+ client_id += String(WiFi.macAddress()); 
+ Serial.printf("The client %s connects to the public MQTT brokern", client_id.c_str()); 
+ if (client.connect(client_id.c_str(), mqtt_username, mqtt_password)) { 
+  Serial.println("Public EMQX MQTT broker connected"); 
+  } else { 
+  Serial.println("failed with state "); 
+  Serial.println(client.state()); 
+  delay(2000); 
+  } 
+  } 
 
-    WiFi.mode(WIFI_STA); 
-    WiFi.begin(ssid, password);
-    Serial.println("\nConnecting");
-
-    unsigned long startAttemptTime = millis();  
-
-    while(WiFi.status() != WL_CONNECTED){
-        Serial.print(".");
-        delay(100);
-// Si après les dix secondes on est pas connecté on affiche wifi non connecte
-         if (millis() - startAttemptTime >= 10000) {
-            lcd.clear();  
-            lcd.setCursor(0, 0);
-            lcd.print("WiFi non connecte");
-            return;  
-        }
-    }
-    
-    lcd.clear(); 
-    lcd.setCursor(0, 0);
-    lcd.print("WiFi connecte");
-    lcd.setCursor(0, 1); 
-    lcd.print("IP: ");
-    lcd.print(WiFi.localIP());
+  client.publish(topic, "Hi, I'm ESP32"); 
+  client.subscribe(topic);
+  } 
+void callback(char *topic, byte *payload, unsigned int length) { 
+Serial.print("Message arrived in topic: "); 
+Serial.println(topic); 
+  Serial.print("Message:"); 
+  for (int i = 0; i < length; i++) { 
+Serial.print((char) payload[i]); 
+  } 
+  Serial.println(); 
+  Serial.println("-----------------------"); 
 }
+void loop() { 
 
-void loop(){
-  if ()
-}
+  client.loop(); 
+
+  } 

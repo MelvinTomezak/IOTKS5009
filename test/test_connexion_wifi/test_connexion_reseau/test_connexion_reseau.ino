@@ -1,8 +1,8 @@
-//Test d'un code afin de se connecter a un réseau avec l'ESP32
+//Test de connexion à un réseau
 #include <WiFi.h>
 
-const char* ssid = "iPhone de JogaBonito";
-const char* password = "melvinledz";
+const char* ssid = "Fayrouz";
+const char* password = "123sf3_8";
 
 void setup(){
     Serial.begin(115200);
@@ -12,9 +12,17 @@ void setup(){
     WiFi.begin(ssid, password);
     Serial.println("\nConnecting");
 
+    unsigned long startAttemptTime = millis();  
+
     while(WiFi.status() != WL_CONNECTED){
         Serial.print(".");
         delay(100);
+
+        // Si on attend plus de 10 secondes alors fin
+        if (millis() - startAttemptTime >= 10000) {
+            Serial.println("\nFailed to connect to WiFi. Check credentials or signal.");
+            return;  
+        }
     }
 
     Serial.println("\nConnected to the WiFi network");
@@ -22,4 +30,5 @@ void setup(){
     Serial.println(WiFi.localIP());
 }
 
-void loop(){}
+void loop(){
+}

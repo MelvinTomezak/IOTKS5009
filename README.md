@@ -55,5 +55,12 @@ mosquitto_pub -h adresseip -t test/test -m test
 
 ## Etape 6 : Configuration ModBus
 
-Configuration du protocole modbus sur le serveur mqtt (présent sur une machine) et le client mqtt (présent sur le raspberry).
+Configuration du protocole modbus sur le raspberry et sur l'esp32.
+Ajout des libraries nécessaire sur le raspberry et du script python.
+Ajout des libraries nécessaire sur l'esp32 et du script python.
+
+## Etape 7 : Création Dashboard
+
+Configuration de la connexion au mqtt.
+Ajout de noeuds qui correspondent aux différents capteurs de l'esp32.
 

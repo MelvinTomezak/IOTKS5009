@@ -53,11 +53,33 @@ Configuration du serveur MQTT pour recevoir des messages envoyé depuis le Raspb
 Il faut se connecter en ssh au raspberry puis executer la commande suivante :
 mosquitto_pub -h adresseip -t test/test -m test
 
-## Etape 6 : Configuration ModBus
+## Etape 6 : Configuration ModBus sur le Rapberry 
 
-Configuration du protocole modbus sur le raspberry et sur l'esp32.
-Ajout des libraries nécessaire sur le raspberry et du script python.
-Ajout des libraries nécessaire sur l'esp32 et du script python.
+On commence par mettre à jour les différents package :
+'sudo apt update && sudo apt upgrade -y'
+On installe build-essential, cmake et git
+'sudo apt install build-essential cmake git -y'
+On installe les librairies nécessaires
+'sudo apt-get install libmodbus-dev'
+'sudo apt install libssl-dev libboost-dev -y'
+On clone un premier repo qui correspond à la librairie paho MQTT en c
+'git clone https://github.com/eclipse/paho.mqtt.c.git
+cd paho.mqtt.c
+cmake -Bbuild -H. -DPAHO_WITH_SSL=TRUE
+sudo cmake --build build/ --target install
+cd ..'
+Même chose avec le second sauf que celui-ci correspond à la librairie paho MQTT en c++
+'git clone https://github.com/eclipse/paho.mqtt.cpp.git
+cd paho.mqtt.cpp
+cmake -Bbuild -H. -DPAHO_BUILD_SAMPLES=TRUE
+sudo cmake --build build/ --target install
+cd ..'
+Pour finir on lance la commande 
+'ldconfig -p | grep paho'
+et on doit avoir une sortie similaire a ("libpaho-mqtt3cs.so.1 (libc6,AArch64) =>")
+
+
+
 
 ## Etape 7 : Création Dashboard
 

@@ -93,14 +93,19 @@ Même chose avec le second sauf que celui-ci correspond à la librairie paho MQT
 
 `cd ..`
 
-Pour finir on lance la commande 
+On lance la commande 
 
 `ldconfig -p | grep paho`
 
-et on doit avoir une sortie similaire a ("libpaho-mqtt3cs.so.1 (libc6,AArch64) =>")
+On doit avoir une sortie similaire a ("libpaho-mqtt3cs.so.1 (libc6,AArch64) =>")
 
+On install mbpoll
 
+`sudo apt install mbpoll`
 
+On vérifie son fonctionnement 
+
+`mbpoll -a 33 -b 38400 -t 3 -r 1 -c 2 /dev/ttyS0`
 
 ## Etape 7 : Création Dashboard
 

@@ -57,45 +57,45 @@ mosquitto_pub -h adresseip -t test/test -m test
 
 On commence par mettre à jour les différents package :
 
-'sudo apt update && sudo apt upgrade -y'
+`sudo apt update && sudo apt upgrade -y`
 
 On installe build-essential, cmake et git
 
-'sudo apt install build-essential cmake git -y'
+`sudo apt install build-essential cmake git -y`
 
 On installe les librairies nécessaires
 
-'sudo apt-get install libmodbus-dev'
+`sudo apt-get install libmodbus-dev`
 
-'sudo apt install libssl-dev libboost-dev -y'
+`sudo apt install libssl-dev libboost-dev -y`
 
 On clone un premier repo qui correspond à la librairie paho MQTT en c
 
-'git clone https://github.com/eclipse/paho.mqtt.c.git'
+`git clone https://github.com/eclipse/paho.mqtt.c.git`
 
-'cd paho.mqtt.c'
+`cd paho.mqtt.c`
 
-'cmake -Bbuild -H. -DPAHO_WITH_SSL=TRUE'
+`cmake -Bbuild -H. -DPAHO_WITH_SSL=TRUE`
 
-'sudo cmake --build build/ --target install'
+`sudo cmake --build build/ --target install`
 
-'cd ..'
+`cd ..`
 
 Même chose avec le second sauf que celui-ci correspond à la librairie paho MQTT en c++
 
-'git clone https://github.com/eclipse/paho.mqtt.cpp.git'
+`git clone https://github.com/eclipse/paho.mqtt.cpp.git`
 
-'cd paho.mqtt.cpp'
+`cd paho.mqtt.cpp`
 
-'cmake -Bbuild -H. -DPAHO_BUILD_SAMPLES=TRUE'
+`cmake -Bbuild -H. -DPAHO_BUILD_SAMPLES=TRUE`
 
-'sudo cmake --build build/ --target install'
+`sudo cmake --build build/ --target install`
 
-'cd ..'
+`cd ..`
 
 Pour finir on lance la commande 
 
-'ldconfig -p | grep paho'
+`ldconfig -p | grep paho`
 
 et on doit avoir une sortie similaire a ("libpaho-mqtt3cs.so.1 (libc6,AArch64) =>")
 

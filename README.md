@@ -112,3 +112,11 @@ On vérifie son fonctionnement
 Configuration de la connexion au mqtt.
 Ajout de noeuds qui correspondent aux différents capteurs de l'esp32.
 
+-installer Node-Red : commande -> npm install -g node-red 
+-installer les dépendances nécessaires -> npm install
+
+Une fois tout installé, lancez Node-Red avec la commande -> node-red
+cela va démarrer le serveur Node-Red en local sur votre machine. 
+
+Une fois Node-Red lancé, ouvrir le navigateur web et accéder à l'interface via : http://localhost:1880
+vous aurez donc accès au Dashboard et au flow Node-Red. 

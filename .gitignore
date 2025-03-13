@@ -1,0 +1,5 @@
+Modbus/node_modules/
+Modbus/package-lock.json
+Modbus/.config.users.json
+Modbus/.config.runtime.json
+Modbus/.config.nodes.json

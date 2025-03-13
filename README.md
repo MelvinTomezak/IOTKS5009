@@ -109,10 +109,13 @@ On vérifie son fonctionnement
 
 ## Etape 7 : Création Dashboard
 
+Tous les fichiers nécessaires se trouvent dans le dossier ModBus.
+
 Configuration de la connexion au mqtt.
 Ajout de noeuds qui correspondent aux différents capteurs de l'esp32.
 
 -installer Node-Red : commande -> npm install -g node-red 
+
 -installer les dépendances nécessaires -> npm install
 
 Une fois tout installé, lancez Node-Red avec la commande -> node-red

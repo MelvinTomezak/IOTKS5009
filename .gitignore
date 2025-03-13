@@ -1,5 +1,12 @@
-Modbus/node_modules/
-Modbus/package-lock.json
+# Ignorer les fichiers de sauvegarde Node-RED
+Modbus/*.json.backup
+Modbus/*.cred.json
 Modbus/.config.users.json
 Modbus/.config.runtime.json
 Modbus/.config.nodes.json
+Modbus/.status.backup
+Modbus/.status_cred.backup
+
+# Ignorer le dossier node_modules 
+Modbus/node_modules/
+Modbus/package-lock.json
